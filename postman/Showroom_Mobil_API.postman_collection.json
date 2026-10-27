@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "b3e09871-34f2-45e8-b80c-7b4d1b9138e1",
+		"name": "Showroom Mobil RESTful API (BTNG)",
+		"description": "Postman Collection untuk Tugas Akhir BTNG Kelas Website Backend - Tema Showroom Mobil",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. GET - Ambil Semua Mobil",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/mobil",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"mobil"
+					]
+				},
+				"description": "Mengambil seluruh daftar mobil dari basis data."
+			},
+			"response": []
+		},
+		{
+			"name": "2. GET - Pencarian & Penyaringan (Search & Filter)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/mobil?search=Avanza&brand=Toyota&status=tersedia",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"mobil"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "Avanza"
+						},
+						{
+							"key": "brand",
+							"value": "Toyota"
+						},
+						{
+							"key": "status",
+							"value": "tersedia"
+						}
+					]
+				},
+				"description": "Filter mobil berdasarkan kata kunci pencarian, merk, dan status."
+			},
+			"response": []
+		},
+		{
+			"name": "3. GET - Paginasi Mobil (Bonus)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/mobil?paginate=true&per_page=5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"mobil"
+					],
+					"query": [
+						{
+							"key": "paginate",
+							"value": "true"
+						},
+						{
+							"key": "per_page",
+							"value": "5"
+						}
+					]
+				},
+				"description": "Mengambil daftar mobil dengan paginasi."
+			},
+			"response": []
+		},
+		{
+			"name": "4. GET - Ambil Detail 1 Mobil",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/mobil/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"mobil",
+						"1"
+					]
+				},
+				"description": "Mengambil detail 1 unit mobil berdasarkan ID."
+			},
+			"response": []
+		},
+		{
+			"name": "5. POST - Tambah Unit Mobil Baru",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nama\": \"Corolla Cross 1.8 Hybrid GR-Sport\",\n    \"brand\": \"Toyota\",\n    \"harga\": 608000000,\n    \"tahun\": 2024,\n    \"transmisi\": \"CVT\",\n    \"bahan_bakar\": \"Hybrid\",\n    \"status\": \"tersedia\",\n    \"foto\": \"https://images.unsplash.com/photo-1549399542-7e3f8b79c341\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/mobil",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"mobil"
+					]
+				},
+				"description": "Menambahkan data unit mobil baru ke dalam katalog showroom."
+			},
+			"response": []
+		},
+		{
+			"name": "6. PUT - Update Seluruh Data Mobil",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nama\": \"Avanza 1.5 G CVT Facelift 2025\",\n    \"brand\": \"Toyota\",\n    \"harga\": 285000000,\n    \"tahun\": 2024,\n    \"transmisi\": \"CVT\",\n    \"bahan_bakar\": \"Bensin\",\n    \"status\": \"tersedia\",\n    \"foto\": \"https://images.unsplash.com/photo-1549399542-7e3f8b79c341\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/mobil/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"mobil",
+						"1"
+					]
+				},
+				"description": "Memperbarui seluruh atribut data mobil yang tersimpan."
+			},
+			"response": []
+		},
+		{
+			"name": "7. PATCH - Update Sebagian Data Mobil (Ubah Status)",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"sold\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/mobil/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"mobil",
+						"1"
+					]
+				},
+				"description": "Memperbarui sebagian atribut data mobil (misal mengubah status ketersediaan)."
+			},
+			"response": []
+		},
+		{
+			"name": "8. DELETE - Hapus Unit Mobil",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/mobil/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"mobil",
+						"1"
+					]
+				},
+				"description": "Menghapus data unit mobil dari basis data."
+			},
+			"response": []
+		},
+		{
+			"name": "9. POST - Test Validasi Error (422 Unprocessable Content)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nama\": \"\",\n    \"harga\": \"bukan_angka\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/mobil",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"mobil"
+					]
+				},
+				"description": "Menguji respon error validasi 422 jika data kosong atau salah tipe."
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}
