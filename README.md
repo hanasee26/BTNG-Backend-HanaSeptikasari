@@ -9,7 +9,7 @@ Layanan RESTful API mandiri untuk manajemen katalog unit mobil showroom, dibangu
 - **Dokumentasi API Interaktif (Live /docs/api):** `https://[app-name].cleverapps.io/docs/api`
 - **URL Base API Live:** `https://[app-name].cleverapps.io/api`
 - **Spesifikasi OpenAPI JSON:** `https://[app-name].cleverapps.io/docs/api.json`
-- **Repository GitHub:** `https://github.com/[username]/BTNG-Backend-[NamaLengkap]`
+- **Repository GitHub:** `https://github.com/hanasee26/BTNG-Backend-HanaSeptikasari`
 
 *(Ganti `[app-name]`, `[username]`, dan `[NamaLengkap]` sesuai akun dan aplikasi Clever Cloud & GitHub Anda)*
 
@@ -52,8 +52,8 @@ Ikuti langkah-langkah berikut untuk menjalankan proyek di komputer lokal:
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/[username]/BTNG-Backend-[NamaLengkap].git
-cd BTNG-Backend-[NamaLengkap]
+git clone https://github.com/hanasee26/BTNG-Backend-HanaSeptikasari.git
+cd BTNG-Backend-HanaSeptikasari
 ```
 
 ### 2. Install Dependensi PHP
