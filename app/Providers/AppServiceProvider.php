@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use Dedoc\Scramble\Scramble;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,9 +23,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Mengizinkan akses publik ke dokumentasi API Scramble di /docs/api
-        Gate::define('viewApiDocs', function ($user = null) {
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
+
+        Scramble::ignoreDefaultRoutes();
+
+        Gate::define('viewApiDocs', function (?User $user = null) {
             return true;
-        });
+        }); 
     }
 }
